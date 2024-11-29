@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-ENV DEBIAN_FRONTEND=noninteractive
-
 RUN apt-get update && \
     apt-get install -y apache2 apache2-utils && \
     apt-get clean && \
@@ -11,4 +9,4 @@ EXPOSE 8080
 
 COPY ./Portfolio /var/www/html
 
-CMD ["apache2", "-D", "FOREGROUND"]
+CMD ["apache2ctl", "-D", "FOREGROUND"]
